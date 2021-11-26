@@ -103,6 +103,7 @@ body {
   align-items: center;
   padding: 0.5rem 4rem;
   margin-top: 1rem;
+  font-weight: 600;
 
   background: var(--glass);
   backdrop-filter: blur(20px);
@@ -243,6 +244,13 @@ body {
 .footer__up {
   font-size: 2rem;
   color: var(--text-color-regular);
+}
+
+.fuel__content {
+  min-width: 300px;
+  min-height: 200px;
+  max-width: 600px;
+  max-height: 400px;
 }
 
 /* Large devices (desktops, 992px and up) */

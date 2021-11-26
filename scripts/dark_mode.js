@@ -1,5 +1,4 @@
 const d = document;
-const w = window;
 export default function darkMode() {
   const $dataDark = d.querySelector(`[data-dark]`);
   const $btnDarkmodeIcon = d.querySelector('.btn-darkmode__icon');
