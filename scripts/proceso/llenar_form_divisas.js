@@ -1,7 +1,7 @@
 import getSimbolos from '../peticion_divisas/get_simbolos.js';
 
 const d = document;
-export default async function mostrarSimbolos() {
+export default async function llenarFormDivisas() {
   const $monedaOrigen = d.querySelector('#formCurrency__from');
   const $monedaDestino = d.querySelector('#formCurrency__to');
   const $fragment = d.createDocumentFragment(); // Fragmento para guardar el contenido
@@ -21,6 +21,7 @@ export default async function mostrarSimbolos() {
 
   const $fragment2 = $fragment.cloneNode(true);
 
+  // Se agregan al HTML
   $monedaOrigen.appendChild($fragment);
   $monedaDestino.appendChild($fragment2);
 }

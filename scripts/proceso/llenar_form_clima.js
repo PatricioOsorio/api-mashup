@@ -1,7 +1,7 @@
 import getPaisesYBandera from '../peticion_otos/get_paises_y_bandera.js';
 
 const d = document;
-export default async function climaPorCapital() {
+export default async function llenarFormClima() {
   const $pais = d.querySelector('#formWeather__country'); // Lista para llenar
   const $fragment = d.createDocumentFragment(); // Fragmento para guardar el contenido
 

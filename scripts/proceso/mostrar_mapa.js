@@ -1,18 +1,23 @@
-import getInformacionCapital from '../peticion_clima/get_informacion_capital.js';
+import getLongitudYLatitud from '../peticion_google_maps/get_lon_lat.js';
+import getCsv from '../peticion_google_maps/get_csv.js';
 
-export default async function mostrarMapa(capital) {
-  const $map = document.querySelector('.map');
+export default async function mostrarMapa(pais, capital) {
+  const jsonCsv = await getCsv();
 
-  const jsonInformacionCapital = await getInformacionCapital(capital);
-  const [latitud, longitud] = jsonInformacionCapital[0].latt_long.split(',');
-  console.log(latitud, longitud);
+  let paisCsv;
+  jsonCsv.forEach((el) => {
+    if (el.country === pais) {
+      paisCsv = el.csv;
+    }
+  });
 
-  $map.textContent = '';
-  const $iframe = document.createElement('iframe');
-  $iframe.src = `https://maps.google.com/?q=${latitud},${longitud}&output=embed`;
-  $iframe.classList = 'iframe__map';
-  $iframe.frameBorder='0'
-  $map.appendChild($iframe);
+  const jsonLongitudYLatitud = await getLongitudYLatitud(paisCsv, capital, capital);
 
+  const latitud = jsonLongitudYLatitud.data[0].latitude;
+  const longitud = jsonLongitudYLatitud.data[0].longitude;
 
+  let map = new google.maps.Map(document.querySelector('.map'), {
+    center: { lat: Number(latitud), lng: Number(longitud) },
+    zoom: 10,
+  });
 }

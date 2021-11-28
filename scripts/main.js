@@ -1,72 +1,62 @@
-// Peticiones
-import getPaisesYCapital from './peticion_otos/get_paises_y_capital.js';
-import getInformacionCapital from './peticion_clima/get_informacion_capital.js';
-import getClimaHoyYPronostico from './peticion_clima/get_clima_hoy_y_pronostico.js';
-import getIconoClima from './peticion_clima/get_icono_clima.js';
-import getImagen from './peticion_otos/get_imagen.js';
-import getVideoYoutube from './peticion_youtube/get_video.js';
-import getGasolina from './peticion_gasolina/get_gasolina.js';
-import getConvertirDivisa from './peticion_divisas/get_convertir_divisa.js';
+import llenarFormClima from './proceso/llenar_form_clima.js';
+import llenarFormDivisas from './proceso/llenar_form_divisas.js';
+import llenarFormGasolinas from './proceso/llenar_form_gasolinas.js';
+import llenarFormCapital from './proceso/llenar_form_capital.js';
 
-// Proceso
-import climaPorCapital from './proceso/clima_por_capital.js';
-import buscarCapital from './proceso/buscar_capital.js';
-import llenarClima from './proceso/llenar_clima.js';
-import cambiarFondo from './proceso/cambiar_fondo.js';
-// import convertirDivisa from './proceso/divisas.js';
-import mostrarSimbolos from './proceso/mostrar_simbolos.js';
-import mostrarGasolinas from './proceso/mostrar_gasolinas.js';
+import mostrarClima from './proceso/mostrar_clima.js';
+import mostrarCambioFondo from './proceso/mostrar_cambio_fondo.js';
 import mostrarVideo from './proceso/mostrar_video.js';
 import mostrarMapa from './proceso/mostrar_mapa.js';
 import converitrDivisas from './proceso/convertir_divisas.js';
 import procesoGasolinas from './proceso/proceso_gasolinas.js';
 
 const d = document;
+
+// EVENTO, cuando el DOM haya sido cargado
 d.addEventListener('DOMContentLoaded', async (e) => {
-  // ? Obtener paises y capital
-  climaPorCapital();
+  // Obtener paises y capital
+  llenarFormClima();
 
-  // ? Mostrar simbolos "Conversor"
-  mostrarSimbolos();
+  // Mostrar simbolos del "Conversor"
+  llenarFormDivisas();
 
-  // ? Mostrar gasolinas
-  mostrarGasolinas();
+  // Mostrar gasolinas
+  llenarFormGasolinas();
 });
 
-// Evento para detectar un cambio de un "Dropdown List"
+// EVENTO, para detectar un cambio de un "Dropdown List"
 d.addEventListener('change', (e) => {
-  const $climaPais = d.querySelector('#formWeather__country');
+  const $formClimaPais = d.querySelector('#formWeather__country');
 
-  if (e.target === $climaPais) buscarCapital(e);
+  if (e.target === $formClimaPais) llenarFormCapital(e);
 });
 
-// Evento cuadno se presione un boton de formulario
+// EVENTO, cuando se presione un boton de formulario
 d.addEventListener('submit', async (e) => {
-  e.preventDefault();
+  e.preventDefault(); // Previene el funcionamiento por defecto
 
-  const $formWeather = d.querySelector('.formWeather');
-  const $formCurrency = d.querySelector('.formCurrency');
-  const $formFuel = d.querySelector('.formFuel');
+  const $formClima = d.querySelector('.formWeather');
+  const $formDivisas = d.querySelector('.formCurrency');
+  const $formGasolinas = d.querySelector('.formFuel');
 
+  // Si se presiona el boton del formulario "Weather"
+  if (e.target === $formClima) {
+    const pais = $formClima.querySelector('#formWeather__country').value;
+    const capital = $formClima.querySelector('#formWeather__capital').value;
 
-  // Cuando presione boton del formulario "Weather"
-  if (e.target === $formWeather) {
-    const estado = $formWeather.querySelector('#formWeather__country').value;
-    const capital = $formWeather.querySelector('#formWeather__capital').value;
-    console.log(estado, capital);
-    llenarClima(capital);
-    cambiarFondo(estado, capital);
+    mostrarClima(capital);
+    mostrarCambioFondo(pais, capital);
     mostrarVideo('sadFM2Qi0wc');
-    mostrarMapa(capital);
+    mostrarMapa(pais, capital);
   }
-  
-  // Cuando presione boton del formulario "Currency"
-  if (e.target === $formCurrency) {
+
+  // Si se presiona el boton del formulario "Currency"
+  if (e.target === $formDivisas) {
     converitrDivisas();
   }
 
-  // Cunado se presion boton de "Fuel"
-  if (e.target === $formFuel) {
-    procesoGasolinas()
+  // Si se presiona el boton del formulario "Fuel"
+  if (e.target === $formGasolinas) {
+    procesoGasolinas();
   }
 });

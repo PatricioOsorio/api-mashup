@@ -2,7 +2,7 @@ import getBuscarCapital from '../peticion_otos/get_buscar_capital.js';
 
 const d = document;
 
-export default async function buscarCapital(e) {
+export default async function llenarFormCapital(e) {
   const $capital = d.querySelector('#formWeather__capital'); // Lista para llenar
   const $fragment = d.createDocumentFragment(); // Fragmento para guardar el contenido
 

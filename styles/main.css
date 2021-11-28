@@ -18,27 +18,11 @@
 
   --success: #01c851;
   --danger: #fe4443;
+  --danger-light: #feb3b3;
   --warning: #ffbb33;
+  --warning-light: #fffaf0;
+  --warning-text: #c05621;
   --info: #33b5e7;
-}
-
-.dark-mode {
-  --background: #181719;
-  --foreground-primary: #27242c;
-  --foreground-secondary: #3d3a41;
-  --text-color-thick: #ffffff;
-  --text-color-regular: #f6f6f6;
-  --text-color-thin: #c2c2c2;
-  --text-color-ultrathin: #bbbbbb;
-  --shadow-color: #161616;
-  --glass: rgba(0, 0, 0, 0.75);
-  --primary: #00adb5;
-  --secondary: #1787ff;
-
-  --success: #017e34;
-  --danger: #cc0000;
-  --warning: #ff8801;
-  --info: #0099cc;
 }
 
 html {
@@ -48,9 +32,6 @@ html {
   box-sizing: border-box;
 
   background-color: var(--background);
-  /* background-image: url('../assets/images/1.jpg'); */
-  /* background-attachment: fixed; */
-  /* background-size: cover; */
   transition: background 2s var(--easeInOut);
 }
 
@@ -71,7 +52,7 @@ body {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   grid-template-rows: repeat(8, auto);
-  gap: 1rem;
+  gap: 1.5rem;
   grid-template-areas:
     'header       '
     'hero         '
@@ -93,12 +74,9 @@ body {
 .containerLarge {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  /* background-color: lightblue; */
 }
 
 .child {
-  /* background-color: lightgreen; */
-  /* border: 1px solid rgb(255, 0, 0); */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -115,11 +93,13 @@ body {
 .team,
 .footer {
   background-color: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(15px);
+  backdrop-filter: blur(20px);
 
   border-radius: var(--radius);
   box-shadow: 0 5px 20px 0 #6e6e6e25;
   padding: 0.5rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 /* ? HEADER */
@@ -131,7 +111,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem 4rem;
+  padding: 0 4rem;
   margin-top: 1rem;
   font-weight: 600;
 
@@ -149,6 +129,17 @@ body {
 .header .menu a {
   color: inherit;
   text-decoration: none;
+  text-align: center;
+  transition: color 0.25s var(--easeInOut);
+}
+
+.header .menu a i {
+  margin: 0;
+  display: block;
+  text-align: center;
+  padding-top: 0.5em;
+  color: inherit;
+  text-decoration: none;
 }
 
 .header .menu a:hover {
@@ -158,7 +149,6 @@ body {
 .title {
   font-weight: 600;
   font-size: 2rem;
-  color: var(--text-color-regular);
 }
 
 .subtitle {
@@ -174,10 +164,10 @@ body {
 .hero__img {
   background-image: url('../assets/images/hero.jpg');
   background-size: cover;
-  /* background-position: 50%; */
   height: 300px;
   border-radius: var(--radius);
 }
+
 .hero__content {
   display: flex;
   flex-flow: column wrap;
@@ -192,19 +182,29 @@ i {
 .form {
   display: flex;
   flex-flow: column wrap;
-  max-width: 400px;
   align-items: center;
-  justify-content: center;
   margin-left: auto;
   margin-right: auto;
-  /* background-color: lightcoral; */
+  width: 400px;
+  text-align: center;
 }
 
 i {
   margin-left: 0.5em;
 }
-.form * {
+
+.form select,
+.form input,
+.form label,
+.form button {
   margin-top: 0.5rem;
+  padding: 0.5rem;
+  width: 80%;
+}
+
+.form button {
+  width: 50%;
+  margin: 1rem auto;
 }
 
 /* ? CLIMA BUSQUEDA */
@@ -217,6 +217,7 @@ i {
   grid-area: map;
   padding: 0;
   overflow: hidden;
+  min-height: 350px;
 }
 
 .iframe__map {
@@ -230,6 +231,7 @@ i {
   background-color: #000;
   padding: 0;
   overflow: hidden;
+  min-height: 350px;
 }
 
 .iframe__video {
@@ -243,12 +245,12 @@ i {
   display: flex;
   flex-flow: column wrap;
   font-size: 1.5rem;
+  color: inherit;
 }
 
 .weather__moreinfo {
   align-self: flex-end;
   text-align: end;
-  /* background-color: rgb(238, 14, 137); */
 }
 
 .weather__main {
@@ -258,13 +260,15 @@ i {
   justify-content: center;
   flex-flow: column;
   margin: 1rem auto;
-  /* background-color: lightpink; */
   font-size: 1rem;
 }
 
 .weather__img {
   height: 100%;
-  max-height: 100px;
+  max-height: 120px;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 1rem;
+  border-radius: var(--radius);
 }
 
 .weather__temperature {
@@ -274,14 +278,12 @@ i {
 }
 
 .weather__icons {
-  /* background-color: lightgreen; */
   display: flex;
   justify-content: space-evenly;
 }
 
 .icon {
   text-align: center;
-  /* background-color: lightsalmon; */
 }
 
 .icon i {
@@ -291,6 +293,32 @@ i {
 .icon span {
   font-weight: normal;
   font-size: 1rem;
+}
+
+.weather__danger {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+
+  padding: 1rem;
+  width: 80%;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--text-color-thick);
+  background-color: var(--danger-light);
+  border: 1px solid var(--danger);
+  border-radius: var(--radius);
+}
+
+.weather__danger i {
+  padding-right: 0.5rem;
+}
+
+.hidden {
+  visibility: hidden;
 }
 
 /* ? DIVISAS */
@@ -308,36 +336,46 @@ i {
   grid-area: fuel;
 }
 
+.fuel__response {
+  background-color: #fff;
+  border-radius: var(--radius);
+}
+
+.fuel__iframe {
+  width: 80%;
+  height: 200px;
+}
+
 /* ? EQUIPO */
 .team {
   grid-area: team;
 }
 
 .team__img {
-
+  max-width: 400px;
+  margin: 0 auto;
 }
 
 .team__content {
   flex-flow: column wrap;
 }
 
+.team__content ul {
+  list-style-image: url('../assets/icons/user.svg');
+  line-height: 2.5rem;
+}
 
 /* ? FOOTER */
 .footer {
   grid-area: footer;
   text-align: center;
+  margin-bottom: 1rem;
+  color: inherit;
 }
 
 .footer__up {
   font-size: 2rem;
-  color: var(--text-color-regular);
-}
-
-.fuel__content {
-  min-width: 300px;
-  min-height: 200px;
-  max-width: 600px;
-  max-height: 400px;
+  color: inherit;
 }
 
 /* ? BOTONES */
