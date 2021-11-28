@@ -1,0 +1,130 @@
+[
+  {
+    "estado": "Aguascalientes",
+    "abreviacion": "AGS"
+  },
+  {
+    "estado": "Baja California",
+    "abreviacion": "BC"
+  },
+  {
+    "estado": "Baja California Sur",
+    "abreviacion": "BCS"
+  },
+  {
+    "estado": "Campeche",
+    "abreviacion": "CAMP"
+  },
+  {
+    "estado": "Chiapas",
+    "abreviacion": "CHIS"
+  },
+  {
+    "estado": "Chihuahua",
+    "abreviacion": "CHIH"
+  },
+  {
+    "estado": "Ciudad de México",
+    "abreviacion": "CDMX"
+  },
+  {
+    "estado": "Coahuila de Zaragoza",
+    "abreviacion": "COAH"
+  },
+  {
+    "estado": "Colima",
+    "abreviacion": "COL"
+  },
+  {
+    "estado": "Durango",
+    "abreviacion": "DGO"
+  },
+  {
+    "estado": "Estado de México",
+    "abreviacion": "MEX"
+  },
+  {
+    "estado": "Guanajuato",
+    "abreviacion": "GTO"
+  },
+  {
+    "estado": "Guerrero",
+    "abreviacion": "GRO"
+  },
+  {
+    "estado": "Hidalgo",
+    "abreviacion": "HGO"
+  },
+  {
+    "estado": "Jalisco",
+    "abreviacion": "JAL"
+  },
+  {
+    "estado": "Michoacán de Ocampo",
+    "abreviacion": "MICH"
+  },
+  {
+    "estado": "Morelos",
+    "abreviacion": "MOR"
+  },
+  {
+    "estado": "Nayarit",
+    "abreviacion": "NAY"
+  },
+  {
+    "estado": "Nuevo León",
+    "abreviacion": "NL"
+  },
+  {
+    "estado": "Oaxaca",
+    "abreviacion": "OAX"
+  },
+  {
+    "estado": "Puebla",
+    "abreviacion": "PUE"
+  },
+  {
+    "estado": "Querétaro",
+    "abreviacion": "QRO"
+  },
+  {
+    "estado": "Quintana Roo",
+    "abreviacion": "QROO"
+  },
+  {
+    "estado": "San Luis Potosí",
+    "abreviacion": "SLP"
+  },
+  {
+    "estado": "Sinaloa",
+    "abreviacion": "SIN"
+  },
+  {
+    "estado": "Sonora",
+    "abreviacion": "SON"
+  },
+  {
+    "estado": "Tabasco",
+    "abreviacion": "TAB"
+  },
+  {
+    "estado": "Tamaulipas",
+    "abreviacion": "TAMPS"
+  },
+  {
+    "estado": "Tlaxcala",
+    "abreviacion": "TLAX"
+  },
+  {
+    "estado": "Veracruz",
+    "abreviacion": "VER"
+  },
+  {
+    "estado": "Yucatán",
+    "abreviacion": "YUC"
+  },
+  {
+    "estado": "Zacatecas",
+    "abreviacion": "ZAC"
+  }
+]

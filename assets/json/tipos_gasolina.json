@@ -1,0 +1,14 @@
+[
+  {
+    "descripcion": "Gasolina Regular",
+    "abreviacion": "REG"
+  },
+  {
+    "descripcion": "Gasolina Premium",
+    "abreviacion": "PRE"
+  },
+  {
+    "descripcion": "Díesel",
+    "abreviacion": "DIE"
+  }
+]

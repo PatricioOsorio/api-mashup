@@ -6,11 +6,12 @@
     <!-- Hoja de estilos personalizada -->
     <link rel="stylesheet" href="styles/normalize-8.0.1-min.css" />
     <link rel="stylesheet" href="styles/main.css" />
+    <!-- <link rel="stylesheet" href="styles/main2.css" /> -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <!-- Fuente de google fonts -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
       rel="stylesheet"
     />
     <!-- Enlace a Javascript -->
@@ -21,6 +22,11 @@
       crossorigin="anonymous"
       async
     ></script>
+    <!-- Bootstrap Font Icon CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+    />
     <!-- Icono de pagina -->
     <link
       rel="shortcut icon"
@@ -29,6 +35,7 @@
     />
   </head>
   <body>
+    <!-- ? HEADER -->
     <header class="header">
       <h1 class="title">Mashup</h1>
       <nav class="menu">
@@ -36,32 +43,169 @@
         <a href="#">Precio gasolina<i class="fas fa-gas-pump"></i></a>
       </nav>
     </header>
-    <div class="hero">
-      <div class="hero__img"></div>
-      <div class="hero__content">
-        <h2>Producto 3</h2>
+
+    <!-- ? SECCION 1 - HERO IMAGE -->
+    <section class="hero containerLarge">
+      <div class="hero__img child"></div>
+      <div class="hero__content child">
+        <h2 class="subtitle">Producto 3</h2>
         <p><strong>Materia</strong>: Servicios web.</p>
         <p><strong>Cuatrimestre</strong>: Septiembre - Diciembre 2021.</p>
       </div>
-    </div>
+    </section>
+
+    <!-- ? SECCION 2 - CLIMA BUSQUEDA -->
+    <section class="weatherSearch">
+      <form class="form formWeather">
+        <h2 class="subtitle">Clima por capital</h2>
+        <label for="formWeather__country"
+          >Pais<i class="fas fa-flag"></i
+        ></label>
+        <select name="formWeather__country" id="formWeather__country">
+          <option value="">-Seleccione opcion</option>
+        </select>
+
+        <label for="formWeather__capital"
+          >Capital<i class="fas fa-building"></i
+        ></label>
+        <select name="formWeather__capital" id="formWeather__capital">
+          <option value="">-Seleccione opcion</option>
+        </select>
+
+        <!-- <input class="btn" type="button" value="Buscar" /> -->
+        <button class="btn">Buscar<i class="fas fa-search"></i></button>
+      </form>
+    </section>
+
+    <!-- ? SECCION 3 - MAPA -->
+    <section class="map"></section>
+
+    <!-- ? SECCION 4 - VIDEO -->
+    <section class="video"></section>
+
+    <!-- ? SECCION 5 - CLIMA INFO -->
     <section class="weather">
-      <div class="weather__img"></div>
-      <div class="weather__content">
-        <p>Ver clima</p>
+      <div class="weather__moreinfo">
+        <i class="far fa-question-circle"></i>
+      </div>
+      <div class="weather__main">
+        <img class="weather__img" src="assets/icons/nublado.svg" />
+        <p>Maximo <span class="weather__temperatureMax"></span></p>
+        <p>Minimo <span class="weather__temperatureMix"></span></p>
+      </div>
+      <div class="weather__icons">
+        <div class="icon">
+          <!-- Viento -->
+          <i class="fas fa-wind"></i>
+          <br />
+          <span class="weather__wind"></span>
+        </div>
+        <div class="icon">
+          <!-- Humedad -->
+          <i class="bi bi-droplet"></i>
+          <br />
+          <span class="weather__humidity"></span>
+        </div>
+        <div class="icon">
+          <!-- Lluvia -->
+          <i class="bi bi-cloud-drizzle"></i>
+          <br />
+          <span class="weather__rain"></span>
+        </div>
+        <div class="icon">
+          <!-- Salida de sol -->
+          <i class="bi bi-sunrise"></i>
+          <br />
+          <span class="weather__sunrise"></span>
+        </div>
+        <div class="icon">
+          <!-- Puesta de sol -->
+          <i class="bi bi-sunset"></i>
+          <br />
+          <span class="weather__sunset"></span>
+        </div>
       </div>
     </section>
-    <section class="fuel">
-      <div class="fuel__img"></div>
-      <div class="fuel__content">
-        <p>Ver precio gasolina</p>
+
+    <!-- ? SECCION 6 - DIVISAS -->
+    <section class="currency containerLarge">
+      <div class="currency__search child">
+        <form class="form formCurrency">
+          <h2 class="subtitle">Conversor divisas</h2>
+          <label for="formCurrency__amount"
+            >Cantidad<i class="fas fa-coins"></i
+          ></label>
+          <input
+            type="number"
+            name="amount"
+            id="formCurrency__amount"
+            required
+            autocomplete="off"
+            min="1"
+          />
+
+          <label for="formCurrency__from"
+            >Moneda origen<i class="fas fa-globe-americas"></i
+          ></label>
+          <select name="from" id="formCurrency__from">
+            <option value="">-Seleccione opcion</option>
+          </select>
+
+          <label for="formCurrency__to"
+            >Moneda destino<i class="fas fa-globe-americas"></i
+          ></label>
+          <select name="to" id="formCurrency__to">
+            <option value="">-Seleccione opcion</option>
+          </select>
+
+          <!-- <input class="btn" type="button" value="Buscar" /> -->
+          <button class="btn">Buscar<i class="fas fa-search"></i></button>
+        </form>
+      </div>
+      <div class="currency__response child">
+        <p>
+          <span class="response__amount">50</span>
+          <span class="response__from">peso mexicano</span>
+        </p>
+        <p>=</p>
+        <p class="response__result">2.300080</p>
+        <p class="response_to">dollares</p>
       </div>
     </section>
-    <section class="team">
-      <div class="team__title">
+
+    <!-- ? SECCION 7 - GASOLINAS -->
+    <section class="fuel containerLarge">
+      <div class="fuel__search child">
+        <form class="form formFuel">
+          <h2 class="subtitle">Precio gasolinas México</h2>
+          <label for="formFuel__country"
+            >Estado<i class="bi bi-geo-alt-fill"></i
+          ></label>
+          <select name="" id="formFuel__country">
+            <option value="">-Seleccione opcion</option>
+          </select>
+
+          <label for="formFuel__type"
+            >Tipo gasolina<i class="fas fa-gas-pump"></i
+          ></label>
+          <select name="" id="formFuel__type">
+            <option value="">-Seleccione opcion</option>
+          </select>
+
+          <!-- <input class="btn" type="button" value="Buscar" /> -->
+          <button class="btn">Buscar<i class="fas fa-search"></i></button>
+        </form>
+      </div>
+      <div class="fuel__response child"></div>
+    </section>
+
+    <!-- ? SECCION 8 - EQUIPO -->
+    <section class="team containerLarge">
+      <div class="team__img child">
+        <img src="assets/svg/team.svg" />
+      </div>
+      <div class="team__content child">
         <h2 class="subtitle">Equipo</h2>
-      </div>
-      <div class="team__img"></div>
-      <div class="team__content">
         <ul>
           <li>Javier Barrios Villalba</li>
           <li>Edgar Alfonso Cuevas Huerta</li>
@@ -71,11 +215,11 @@
         </ul>
       </div>
     </section>
+
+    <!-- ? FOOTER -->
     <footer class="footer">
       <p class="title">Mashup</p>
       <a class="footer__up" href="#"><i class="fas fa-arrow-circle-up"></i></a>
-      <div id="video"></div>
-      <div id="fuel"></div>
     </footer>
   </body>
 </html>

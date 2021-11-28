@@ -1,6 +1,6 @@
-export default async function getBuscarCapital(capital) {
+export default async function getEstadosMexico() {
   try {
-    const url = `https://www.metaweather.com/api/location/search/?query=${capital}`;
+    const url = `../../assets/json/estados_mexico.json`;
 
     const res = await fetch(url);
     const json = await (res.ok ? res.json() : Promise.reject(res));
