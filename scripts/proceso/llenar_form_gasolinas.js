@@ -1,4 +1,4 @@
-import getEstadosMexico from '../peticion_gasolina/get_estados_,mexico.js';
+import getEstadosMexico from '../peticion_gasolina/get_estados_mexico.js';
 import getTipoGasolina from '../peticion_gasolina/get_tipo_gasolina.js';
 
 const d = document;

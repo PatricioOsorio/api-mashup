@@ -7,8 +7,8 @@ import mostrarClima from './proceso/mostrar_clima.js';
 import mostrarCambioFondo from './proceso/mostrar_cambio_fondo.js';
 import mostrarVideo from './proceso/mostrar_video.js';
 import mostrarMapa from './proceso/mostrar_mapa.js';
-import converitrDivisas from './proceso/convertir_divisas.js';
-import procesoGasolinas from './proceso/proceso_gasolinas.js';
+import mostrarCambioDivisa from './proceso/mostrar_cambio_divisa.js';
+import mostrarGasolinas from './proceso/mostrar_gasolinas.js';
 
 const d = document;
 
@@ -52,11 +52,11 @@ d.addEventListener('submit', async (e) => {
 
   // Si se presiona el boton del formulario "Currency"
   if (e.target === $formDivisas) {
-    converitrDivisas();
+    mostrarCambioDivisa();
   }
 
   // Si se presiona el boton del formulario "Fuel"
   if (e.target === $formGasolinas) {
-    procesoGasolinas();
+    mostrarGasolinas();
   }
 });

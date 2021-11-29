@@ -1,4 +1,4 @@
-import getBuscarCapital from '../peticion_otos/get_buscar_capital.js';
+import getBuscarCapital from '../peticion_clima/get_buscar_capital.js';
 
 const d = document;
 

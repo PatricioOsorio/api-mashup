@@ -1,4 +1,4 @@
-import getPaisesYBandera from '../peticion_otos/get_paises_y_bandera.js';
+import getPaisesYBandera from '../peticion_clima/get_paises_y_bandera.js';
 
 const d = document;
 export default async function llenarFormClima() {

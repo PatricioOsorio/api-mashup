@@ -149,6 +149,13 @@ body {
 .title {
   font-weight: 600;
   font-size: 2rem;
+
+  background: #00adb5; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #00ADB5, #00F4FF); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #00ADB5, #00F4FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .subtitle {
@@ -200,6 +207,12 @@ i {
   margin-top: 0.5rem;
   padding: 0.5rem;
   width: 80%;
+  border-radius: 10px;
+}
+
+.form input,
+.form select {
+  background-color: var(--foreground-secondary);
 }
 
 .form button {
@@ -300,7 +313,7 @@ i {
 
   left: 50%;
   top: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
 
   padding: 1rem;
   width: 80%;
@@ -329,6 +342,12 @@ i {
 .currency__response {
   display: flex;
   flex-flow: column wrap;
+}
+
+.response__result {
+  font-weight: 400;
+  font-size: 2.5rem;
+  margin: 0;
 }
 
 /* ? GASOLINAS */
@@ -382,19 +401,17 @@ i {
 .btn {
   padding: 0.5em;
   border: 1px solid var(--primary);
-  color: var(--primary);
-  background-color: var(--foreground-primary);
+  color: #fff;
+  background-color: var(--primary);
   cursor: pointer;
   border-radius: 5px;
-  transition: background-color 0.25s var(--easeInOut),
-    color 0.25s var(--easeInOut), transform 0.25s var(--easeInOut);
+  transition: box-shadow 0.25s var(--easeInOut),
+    transform 0.25s var(--easeInOut);
 }
 
 .btn:hover {
   border: 1px solid var(--primary);
-  color: #fff;
-  background-color: var(--primary);
-  box-shadow: 0 8px 16px 0 rgba(31, 131, 135, 0.37);
+  box-shadow: 0 0px 16px 0 rgba(0, 247, 255, 0.37);
 }
 
 .btn:active {
