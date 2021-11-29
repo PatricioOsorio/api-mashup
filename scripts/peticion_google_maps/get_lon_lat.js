@@ -1,6 +1,6 @@
 export default async function getLongitudYLatitud(pais, estado, ciudad) {
   try {
-    const url = `http://api.positionstack.com/v1/forward?access_key=8daa045d98d8f2c6a1f07a66d1904f12&country=${pais}&region=${estado}&query=${ciudad}`;
+    const url = `http://api.positionstack.com/v1/forward?access_key=8daa045d98d8f2c6a1f07a66d1904f12&country=${pais}&region=${estado}&query=${ciudad}/`;
 
     const res = await fetch(url, {
       header: { 'Content-Security-Policy': 'upgrade-insecure-requests' },
