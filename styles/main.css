@@ -12,6 +12,8 @@
   --text-color-thin: #676767;
   --text-color-ultrathin: #8c8c8c;
   --shadow-color: #e4e4e4;
+  --box-shadow: 0 5px 20px 0 #6e6e6e25;
+
   --glass: rgba(255, 255, 255, 0.8);
   --primary: #00adb5;
   --secondary: #1787ff;
@@ -96,7 +98,7 @@ body {
   backdrop-filter: blur(20px);
 
   border-radius: var(--radius);
-  box-shadow: 0 5px 20px 0 #6e6e6e25;
+  box-shadow: var(--box-shadow);
   padding: 0.5rem;
   margin-left: 0.5rem;
   margin-right: 0.5rem;
@@ -151,8 +153,16 @@ body {
   font-size: 2rem;
 
   background: #00adb5; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #00ADB5, #00F4FF); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #00ADB5, #00F4FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: -webkit-linear-gradient(
+    to right,
+    #00adb5,
+    #00f4ff
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #00adb5,
+    #00f4ff
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -213,6 +223,7 @@ i {
 .form input,
 .form select {
   background-color: var(--foreground-secondary);
+  border: 1px solid transparent;
 }
 
 .form button {
@@ -241,7 +252,6 @@ i {
 /* ? VIDEO */
 .video {
   grid-area: video;
-  background-color: #000;
   padding: 0;
   overflow: hidden;
   min-height: 350px;
@@ -262,8 +272,11 @@ i {
 }
 
 .weather__moreinfo {
-  align-self: flex-end;
-  text-align: end;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  text-align: start;
+  cursor: pointer;
 }
 
 .weather__main {
@@ -279,6 +292,7 @@ i {
 .weather__img {
   height: 100%;
   max-height: 120px;
+  min-width: 120px;
   background-color: rgba(255, 255, 255, 0.8);
   padding: 1rem;
   border-radius: var(--radius);
@@ -416,6 +430,58 @@ i {
 
 .btn:active {
   transform: scale(0.9);
+}
+
+/* MODAL - Weather */
+.weatherModal {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1010;
+  height: 90vh;
+  width: 90vw;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  border-radius: var(--radius);
+  overflow: hidden;
+  overflow-y: scroll;
+  background-color: var(--background);
+}
+
+.weatherModal__close {
+  position: absolute;
+  font-size: 2rem;
+  width: 2rem;
+  height: 2rem;
+  color: var(--primary);
+  top: 1rem;
+  right: 1rem;
+  border-radius: 50%;
+  text-align: center;
+  cursor: pointer;
+}
+
+.weatherModal__close i {
+  margin-left: 0;
+}
+
+.cardWeather {
+  width: 200px;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: var(--box-shadow);
+  background-color: var(--foreground-primary);
+  border-radius: var(--radius);
+}
+
+.cardWeather__img {
+  width: 100px;
+  background-color: var(--foreground-secondary);
+  padding: 1rem;
+  border-radius: var(--radius);
 }
 
 /* ? Media queries */

@@ -18,6 +18,6 @@ export default async function mostrarMapa(pais, capital) {
 
   let map = new google.maps.Map(document.querySelector('.map'), {
     center: { lat: Number(latitud), lng: Number(longitud) },
-    zoom: 10,
+    zoom: 7,
   });
 }

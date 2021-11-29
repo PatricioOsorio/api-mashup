@@ -9,6 +9,8 @@ import mostrarVideo from './proceso/mostrar_video.js';
 import mostrarMapa from './proceso/mostrar_mapa.js';
 import mostrarCambioDivisa from './proceso/mostrar_cambio_divisa.js';
 import mostrarGasolinas from './proceso/mostrar_gasolinas.js';
+import mostrarClimaDetalles from './proceso/mostrar_clima_detalles.js';
+import cerrarModal from './proceso/cerrar_modal.js';
 
 const d = document;
 
@@ -59,4 +61,13 @@ d.addEventListener('submit', async (e) => {
   if (e.target === $formGasolinas) {
     mostrarGasolinas();
   }
+});
+
+// EVENTO, cuando se presione un boton
+d.addEventListener('click', async (e) => {
+  // e.preventDefault(); // Previene el funcionamiento por defecto
+  const $btnWeatherMoreinfo = d.querySelector('.weather__moreinfo');
+
+  if (e.target.matches('.weather__moreinfo *')) mostrarClimaDetalles();
+  if (e.target.matches('.weatherModal__close *')) cerrarModal();
 });

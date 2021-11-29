@@ -1,8 +1,9 @@
 export default async function getClimaHoyYPronostico(woeid) {
   try {
+    const corsAnywhere = 'https://mycors-jailbase.herokuapp.com/';
     const url = `https://www.metaweather.com/api/location/${woeid}/`;
 
-    const res = await fetch(url);
+    const res = await fetch(corsAnywhere + url);
     const json = await (res.ok ? res.json() : Promise.reject(res));
 
     return json;

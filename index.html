@@ -93,7 +93,7 @@
 
     <!-- ? SECCION 5 - CLIMA INFO -->
     <section class="weather">
-      <div class="weather__moreinfo">
+      <div class="weather__moreinfo hidden">
         <i class="far fa-question-circle"></i>
       </div>
       <div class="weather__main">
@@ -169,7 +169,7 @@
           <button class="btn">Buscar<i class="fas fa-search"></i></button>
         </form>
       </div>
-      <div class="currency__response child">
+      <div class="currency__response child hidden">
         <p>
           <span class="response__amount"></span>
           <span class="response__from"></span>
@@ -178,8 +178,7 @@
         <p class="response__result"></p>
         <p class="response_to"></p>
         <p>
-          <span class="response_date"></span
-          ><i class="fas fa-calendar-alt"></i>
+          <span class="response_date"></span><i class="fas fa-calendar-alt"></i>
         </p>
       </div>
     </section>
@@ -225,6 +224,34 @@
         </ul>
       </div>
     </section>
+
+    <div class="weatherModal hidden">
+      <a class="weatherModal__close"><i class="fas fa-times"></i></a>
+    </div>
+
+    <template class="template-cardWeather">
+      <div class="cardWeather">
+        <p>Fecha : <span class="cardWeather__date">Hoy</span></p>
+        <img class="cardWeather__img" src="assets/icons/s.svg" />
+        <p><span class="cardWeather__detail"></span></p>
+        <p>Maximo <span class="cardWeather__temperatureMax"></span></p>
+        <p>Minimo <span class="cardWeather__temperatureMin"></span></p>
+        <div class="cardWeather__icons">
+          <p>
+            <i class="bi bi-wind"></i>
+            <span class="cardWeather__wind">viento</span>
+          </p>
+          <p>
+            <i class="bi bi-droplet"></i>
+            <span class="cardWeather__humidity">humedad</span>
+          </p>
+          <p>
+            <i class="bi bi-cloud-drizzle"></i>
+            <span class="cardWeather__rain">lluvia</span>
+          </p>
+        </div>
+      </div>
+    </template>
 
     <!-- ? FOOTER -->
     <footer class="footer">

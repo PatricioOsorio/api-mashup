@@ -1,8 +1,9 @@
 export default async function getInformacionCapital(capital) {
   try {
+    const corsAnywhere = 'https://mycors-jailbase.herokuapp.com/';
     const url = `https://www.metaweather.com/api/location/search/?query=${capital}`;
 
-    const res = await fetch(url);
+    const res = await fetch(corsAnywhere + url);
     const json = await (res.ok ? res.json() : Promise.reject(res));
 
     return json;

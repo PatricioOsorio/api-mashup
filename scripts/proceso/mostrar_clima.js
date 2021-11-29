@@ -12,15 +12,19 @@ export default async function mostrarClima(capital) {
   const $lluvia = d.querySelector('.weather__rain');
   const $salidaSol = d.querySelector('.weather__sunrise');
   const $puestaSol = d.querySelector('.weather__sunset');
+
   const $error = d.querySelector('.weather__danger');
+  const $moreInfo = d.querySelector('.weather__moreinfo');
 
   // Esperamos la peticion
   const jsonInformacionCapital = await getInformacionCapital(capital);
 
   if (jsonInformacionCapital.length === 0) {
     $error.classList.remove('hidden');
+    $moreInfo.classList.add('hidden');
   } else {
     $error.classList.add('hidden');
+    $moreInfo.classList.remove('hidden');
 
     const woeid = jsonInformacionCapital[0].woeid;
     console.log(woeid);
@@ -35,6 +39,7 @@ export default async function mostrarClima(capital) {
     const humedad = jsonClimaHoy.consolidated_weather[0].humidity;
     const probabilidadLluvia =
       jsonClimaHoy.consolidated_weather[0].predictability;
+      
     let fecha = new Date(jsonClimaHoy.sun_rise);
     const salidaSol = fecha.toLocaleTimeString();
     fecha = new Date(jsonClimaHoy.sun_set);

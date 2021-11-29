@@ -8,11 +8,13 @@ export default async function mostrarCambioDivisa() {
 
   const $resultado = d.querySelector('.currency__response');
 
+  
   // Esperamos la respuesta de la peticion
   const jsonDivisa = await getConvertirDivisa($cantidad, $origen, $destino);
-
+  
   const equivalencia = jsonDivisa.result;
-
+  
+  $resultado.classList.remove('hidden');
   $resultado.querySelector('.response__result').textContent = equivalencia;
   $resultado.querySelector('.response__amount').textContent = $cantidad;
   $resultado.querySelector('.response__from').textContent = $origen;
