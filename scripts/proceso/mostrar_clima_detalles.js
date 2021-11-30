@@ -59,9 +59,6 @@ export default async function mostrarClimaDetalles() {
     $fragment.appendChild($clone);
   }
 
-  // Se clona, para poder ser agregado
-  console.log($fragment);
-
   // El "fragment" se agrega al HTML, para ser visualizado
   $weatherModal.appendChild($fragment);
 }

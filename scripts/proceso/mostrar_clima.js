@@ -27,7 +27,6 @@ export default async function mostrarClima(capital) {
     $moreInfo.classList.remove('hidden');
 
     const woeid = jsonInformacionCapital[0].woeid;
-    console.log(woeid);
 
     // Esperamos la peticion
     const jsonClimaHoy = await getClimaHoyYPronostico(woeid);
