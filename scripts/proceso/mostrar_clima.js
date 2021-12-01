@@ -4,6 +4,7 @@ import getIconoClima from '../peticion_clima/get_icono_clima.js';
 
 const d = document;
 export default async function mostrarClima(capital) {
+  // Elementos del HTML
   const $img = d.querySelector('.weather__img');
   const $maximo = d.querySelector('.weather__temperatureMax');
   const $minimo = d.querySelector('.weather__temperatureMix');
@@ -19,31 +20,38 @@ export default async function mostrarClima(capital) {
   // Esperamos la peticion
   const jsonInformacionCapital = await getInformacionCapital(capital);
 
+  // Si la respuesta json no tiene valores, muestra mensaje de error
   if (jsonInformacionCapital.length === 0) {
     $error.classList.remove('hidden');
     $moreInfo.classList.add('hidden');
   } else {
+    // Si la respuesta json tiene valores, se mostraran en el HTML
     $error.classList.add('hidden');
     $moreInfo.classList.remove('hidden');
 
+    // Peticion de la "woeid" de la capital
     const woeid = jsonInformacionCapital[0].woeid;
 
-    // Esperamos la peticion
+    // Peticion del clima y pronostico de la capital
     const jsonClimaHoy = await getClimaHoyYPronostico(woeid);
 
-    const simbolo = jsonClimaHoy.consolidated_weather[0].weather_state_abbr;
-    const tempMax = jsonClimaHoy.consolidated_weather[0].max_temp;
-    const tempMin = jsonClimaHoy.consolidated_weather[0].min_temp;
-    const velocidadAire = jsonClimaHoy.consolidated_weather[0].wind_speed;
-    const humedad = jsonClimaHoy.consolidated_weather[0].humidity;
-    const probabilidadLluvia =
-      jsonClimaHoy.consolidated_weather[0].predictability;
-      
+    // Se llenan en constantes, el resultado enviado de la api
+    const jsonToday = jsonClimaHoy.consolidated_weather[0];
+
+    const simbolo = jsonToday.weather_state_abbr;
+    const tempMax = jsonToday.max_temp;
+    const tempMin = jsonToday.min_temp;
+    const velocidadAire = jsonToday.wind_speed;
+    const humedad = jsonToday.humidity;
+    const probabilidadLluvia = jsonToday.predictability;
+
     let fecha = new Date(jsonClimaHoy.sun_rise);
     const salidaSol = fecha.toLocaleTimeString();
+
     fecha = new Date(jsonClimaHoy.sun_set);
     const puestaSol = fecha.toLocaleTimeString();
 
+    // Se agregan al HTML
     $img.src = await getIconoClima(simbolo);
     $maximo.textContent = tempMax.toFixed() + '°';
     $minimo.textContent = tempMin.toFixed() + '°';

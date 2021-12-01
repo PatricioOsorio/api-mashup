@@ -4,8 +4,8 @@ import getTipoGasolina from '../peticion_gasolina/get_tipo_gasolina.js';
 const d = document;
 
 export default async function llenarFormGasolinas() {
-  const $estado = d.querySelector('#formFuel__country');
-  const $tipoGasolina = d.querySelector('#formFuel__type');
+  const $estado = d.querySelector('#formFuel__country'); // Lista para ser llenada
+  const $tipoGasolina = d.querySelector('#formFuel__type'); // Lista para ser llenada
   const $fragment = d.createDocumentFragment(); // Fragmento para guardar el contenido
   const $fragment2 = d.createDocumentFragment(); // Fragmento para guardar el contenido
 

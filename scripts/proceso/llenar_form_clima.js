@@ -2,7 +2,7 @@ import getPaisesYBandera from '../peticion_clima/get_paises_y_bandera.js';
 
 const d = document;
 export default async function llenarFormClima() {
-  const $pais = d.querySelector('#formWeather__country'); // Lista para llenar
+  const $pais = d.querySelector('#formWeather__country'); // Lista para ser llenada
   const $fragment = d.createDocumentFragment(); // Fragmento para guardar el contenido
 
   // Esperamos la peticion
@@ -14,7 +14,7 @@ export default async function llenarFormClima() {
     paises.push(el.name);
   });
 
-  // Llenado con los paises
+  // Llenado del "DropDown List" de los paises
   paises.forEach((el) => {
     const $option = d.createElement('option');
 

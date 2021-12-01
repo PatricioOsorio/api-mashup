@@ -1,8 +1,4 @@
-export default async function getConvertirDivisa(
-  cantidad,
-  simboloOrigen,
-  simboloEquivalente
-) {
+export default async function getConvertirDivisa(cantidad,simboloOrigen,simboloEquivalente) {
   try {
     const url = `https://api.exchangerate.host/convert?from=${simboloOrigen}&to=${simboloEquivalente}&amount=${cantidad}`;
 

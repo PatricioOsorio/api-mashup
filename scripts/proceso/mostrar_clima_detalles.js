@@ -4,10 +4,11 @@ import getIconoClima from '../peticion_clima/get_icono_clima.js';
 
 const d = document;
 export default async function mostrarClimaDetalles() {
-  const $weatherModal = d.querySelector('.weatherModal');
+  const $weatherModal = d.querySelector('.weatherModal'); // Ventana modal HTML
   let $fragment = d.createDocumentFragment(); // Fragmento para ser llenado
   const $template = d.querySelector('.template-cardWeather').content; // Template HTML
 
+  // Se obtiene el valor de la capital seleccinoada
   const capital = d.querySelector('#formWeather__capital').value;
 
   //  Se limpia la modal
@@ -17,7 +18,7 @@ export default async function mostrarClimaDetalles() {
   const jsonInformacionCapital = await getInformacionCapital(capital);
   const woeid = jsonInformacionCapital[0].woeid;
 
-  // Esperamos la peticion
+  // Esperamos la peticion, del pronostico
   const jsonClimaHoy = await getClimaHoyYPronostico(woeid);
 
   const jsonDias = jsonClimaHoy.consolidated_weather;
@@ -27,6 +28,8 @@ export default async function mostrarClimaDetalles() {
     <i class="fas fa-times"></i>
   </a>`;
 
+  // Se recorre el resultado obtenido
+  // Y se muestra en una ventana modal
   for (const el of jsonDias) {
     const detalles = el.weather_state_name;
     const fecha = el.applicable_date;
@@ -53,12 +56,13 @@ export default async function mostrarClimaDetalles() {
     $template.querySelector('.cardWeather__rain').textContent =
       probabilidadLluvia + '%';
 
+    // Se clona el contenido
     let $clone = d.importNode($template, true);
 
     // El contenido clonado, se agrega al "fragment"
     $fragment.appendChild($clone);
   }
 
-  // El "fragment" se agrega al HTML, para ser visualizado
+  // El "fragment" se agrega al HTML, para ser visualizado en el HTML
   $weatherModal.appendChild($fragment);
 }

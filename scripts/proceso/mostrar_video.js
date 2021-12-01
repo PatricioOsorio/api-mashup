@@ -1,4 +1,5 @@
 export default async function mostrarVideo(pais, capital) {
+  // Consulta, de lo que se quiere ver en el video
   const query = String(`noticias ${capital} ${pais}`);
 
   function authenticate() {
@@ -54,7 +55,7 @@ export default async function mostrarVideo(pais, capital) {
   setTimeout(() => {
     authenticate().then(loadClient);
   }, 3000);
-  
+
   // Despues de 5 seg, se busca el video y se inserta
   setTimeout(async () => {
     const idVideo = await execute();
