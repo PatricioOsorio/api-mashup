@@ -10,6 +10,9 @@ export default async function mostrarClimaDetalles() {
 
   const capital = d.querySelector('#formWeather__capital').value;
 
+  //  Se limpia la modal
+  $weatherModal.classList.remove('hidden');
+
   // Esperamos la peticion
   const jsonInformacionCapital = await getInformacionCapital(capital);
   const woeid = jsonInformacionCapital[0].woeid;
@@ -18,9 +21,6 @@ export default async function mostrarClimaDetalles() {
   const jsonClimaHoy = await getClimaHoyYPronostico(woeid);
 
   const jsonDias = jsonClimaHoy.consolidated_weather;
-
-  //  Se limpia la modal
-  $weatherModal.classList.remove('hidden');
 
   $weatherModal.innerHTML = `
   <a class="weatherModal__close">

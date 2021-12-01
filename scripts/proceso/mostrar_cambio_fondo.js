@@ -7,7 +7,7 @@ export default async function mostrarCambioFondo(busqueda) {
   const url = await getImagen(busqueda);
   const urlImage= url.photos[0].src.landscape;
 
-  console.log(urlImage);
+  // console.log(urlImage);
   
   const htmlStyle = document.documentElement.style;
   
