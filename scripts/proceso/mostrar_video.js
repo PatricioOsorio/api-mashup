@@ -68,6 +68,7 @@ export default async function mostrarVideo(pais, capital) {
     $iframe.src = `https://www.youtube.com/embed/${idVideo}`;
     $iframe.classList = 'iframe__video';
     $iframe.frameBorder = '0';
+    $iframe.allow = 'autoplay';
 
     // Se agrega al HTML
     $video.appendChild($iframe);

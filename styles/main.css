@@ -25,6 +25,9 @@
   --warning-light: #fffaf0;
   --warning-text: #c05621;
   --info: #33b5e7;
+
+  --animation-fade-in: fade-in 1s cubic-bezier(0.39, 0.57, 0.56, 1) both;
+  --animation-fade-out: fade-out 1s ease-out both;
 }
 
 html {
@@ -344,10 +347,6 @@ i {
   padding-right: 0.5rem;
 }
 
-.hidden {
-  visibility: hidden;
-}
-
 /* ? DIVISAS */
 .currency {
   grid-area: currency;
@@ -484,6 +483,14 @@ i {
   border-radius: var(--radius);
 }
 
+.open {
+  animation: var(--animation-fade-in);
+}
+
+.hidden {
+  animation: var(--animation-fade-out);
+}
+
 /* ? Media queries */
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
@@ -501,5 +508,25 @@ i {
     padding-left: 1rem;
     padding-right: 1rem;
     max-width: var(--container-width);
+  }
+}
+
+/* ? Animations */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
   }
 }

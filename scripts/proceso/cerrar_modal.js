@@ -1,5 +1,5 @@
 export default function cerrarModal() {
-  const $modal = document.querySelector('.weatherModal');
+  const $weatherModal = document.querySelector('.weatherModal');
 
-  $modal.classList.add('hidden');
+  $weatherModal.classList.add('hidden');
 }

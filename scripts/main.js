@@ -47,7 +47,7 @@ d.addEventListener('submit', async (e) => {
     const capital = $formClima.querySelector('#formWeather__capital').value;
 
     mostrarClima(capital);
-    mostrarCambioFondo(pais, capital);
+    mostrarCambioFondo(`${pais} ${capital}`);
     mostrarVideo(pais, capital);
     mostrarMapa(pais, capital);
   }
